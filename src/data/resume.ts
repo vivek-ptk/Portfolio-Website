@@ -62,7 +62,7 @@ export const experience = [
       "Built and delivered UI for WhatsApp campaign dashboard in 7 days.",
       "Fixed bugs and enhanced CRUD operations across modules, leading to smoother workflows and fewer support tickets."
     ],
-    tech: ["Next.js", "React", "Node.js", "Express", "MongoDB", "REST"]
+    tech: ["Next.js", "React", "Node.js", "Express", "MongoDB", "REST", "Docker"]
   }
 ];
 

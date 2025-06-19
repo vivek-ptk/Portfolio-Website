@@ -53,7 +53,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -62,7 +62,7 @@ export default function Contact() {
         >
           <motion.h2 
             variants={item}
-            className="text-4xl font-bold text-center mb-4"
+            className="text-4xl font-bold text-center mb-12"
           >
             Let's Connect
           </motion.h2>
@@ -72,9 +72,8 @@ export default function Contact() {
             className="text-center text-gray-300 mb-12 max-w-2xl mx-auto text-lg"
           >            I&apos;m always open to discussing new opportunities, interesting projects, 
             or just having a conversation about technology and innovation.
-          </motion.p>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          </motion.p>          
+          <div className="flex justify-center gap-6 mb-12">
             {contactMethods.map((method, index) => (
               <motion.a
                 key={index}
@@ -82,19 +81,11 @@ export default function Contact() {
                 href={method.href}
                 target={method.href.startsWith('http') ? '_blank' : undefined}
                 rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="group block"
+                className="group"
+                title={method.label}
               >
-                <div className={`h-full bg-gradient-to-r ${method.color} rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105`}>
-                  <div className="flex items-center space-x-4">
-                    <method.icon size={24} className="text-white" />
-                    <div>
-                      <h3 className="text-lg font-semibold text-white">{method.label}</h3>
-                      <p className="text-white/80 text-sm">{method.value}</p>
-                    </div>
-                  </div>
-                  {method.href.startsWith('http') && (
-                    <ExternalLink size={16} className="text-white/60 mt-2 group-hover:text-white transition-colors" />
-                  )}
+                <div className="w-16 h-16 rounded-full border-2 border-white/30 flex items-center justify-center hover:border-white hover:bg-white/10 transition-all duration-100 group-hover:scale-110">
+                  <method.icon size={28} className="text-white" />
                 </div>
               </motion.a>
             ))}
@@ -105,7 +96,7 @@ export default function Contact() {
             variants={item}
             className="text-center"
           >
-            <div className="bg-white/10 backdrop-blur-md rounded-lg p-8 border border-white/20">
+            {/* <div className="bg-white/10 backdrop-blur-md rounded-lg p-8 border border-white/20"> */}
               <div className="flex items-center justify-center space-x-2 mb-4">
                 <MapPin size={20} className="text-blue-400" />
                 <span className="text-lg">Based in Bhubaneswar, Odisha, India</span>
@@ -117,7 +108,7 @@ export default function Contact() {
                 Available for internships, freelance projects, and full-time positions.
               </p> */}
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href={`mailto:${personalInfo.email}?subject=Let's Connect!`}
                   className="inline-flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full font-semibold transition-colors duration-300"
@@ -135,8 +126,8 @@ export default function Contact() {
                   <Linkedin size={18} />
                   <span>Connect on LinkedIn</span>
                 </a>
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
           </motion.div>
 
           {/* Footer */}
