@@ -16,18 +16,26 @@ export default function Icon() {
     (
       <div
         style={{
-          fontSize: 24,
-          background: 'linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%)',
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: 'white',
-          fontWeight: 'bold',
+          background: '#000000',
+          borderRadius: '50%',
+          overflow: 'hidden',
         }}
       >
-        VP
+        <img
+          src="/profile-pic.png"
+          alt="VP"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            filter: 'grayscale(100%)',
+          }}
+        />
       </div>
     ),
     // ImageResponse options
