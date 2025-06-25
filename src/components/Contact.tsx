@@ -39,7 +39,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-black text-white">
+    <section id="contact" className="py-30 bg-black text-white pt-16 border-t border-gray-900">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -85,47 +85,14 @@ export default function Contact() {
           {/* Location */}
           <motion.div
             variants={item}
-            className="text-center mb-16"
+            className="text-center "
           >
             <div className="flex items-center justify-center space-x-3 text-gray-400">
               <MapPin size={20} />
-              <span className="font-light">Based in Bhubaneswar, Odisha, India</span>
+              <span className="font-light">Based in Bokaro, Jharkhand, India</span>
             </div>
           </motion.div>          {/* Footer */}
-          <motion.div
-            variants={item}
-            className="text-center pt-16 border-t border-gray-900"
-          >
-            {/* Social Links */}
-            <div className="flex justify-center space-x-8 mb-8">
-              <a
-                href={`https://github.com/${personalInfo.github}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-gray-300 transition-colors duration-300"
-              >
-                Github
-              </a>
-              <a
-                href={`https://${personalInfo.linkedin}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-gray-300 transition-colors duration-300"
-              >
-                LinkedIn
-              </a>
-              <a
-                href={`mailto:${personalInfo.email}`}
-                className="text-gray-500 hover:text-gray-300 transition-colors duration-300"
-              >
-                Email
-              </a>
-            </div>
-            
-            <p className="text-gray-500 font-light">
-              © 2025 {personalInfo.name}
-            </p>
-          </motion.div>
+          
         </motion.div>
       </div>
     </section>
