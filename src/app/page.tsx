@@ -1,4 +1,4 @@
-import Navigation from '@/components/Navigation';
+import Navigation from '@/components/Navigation_New';
 import Hero from '@/components/Hero_New';
 import About from '@/components/About';
 import Experience from '@/components/Experience';
