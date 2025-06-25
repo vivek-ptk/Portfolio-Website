@@ -44,8 +44,9 @@ export default function Navigation() {
     const element = document.getElementById(href.slice(1));
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => setIsOpen(false), 890);
     }
-    setIsOpen(false);
+    // setIsOpen(false);
   };
 
   return (
