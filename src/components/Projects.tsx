@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { projects } from '@/data/resume';
 import { ExternalLink, Github } from 'lucide-react';
+import Image from 'next/image';
 
 const container = {
   hidden: { opacity: 0 },
@@ -17,6 +18,19 @@ const container = {
 const item = {
   hidden: { opacity: 0, y: 30 },
   show: { opacity: 1, y: 0 }
+};
+
+// Map project names to their corresponding images
+const getProjectImage = (projectName: string): string => {
+  const imageMap: { [key: string]: string } = {
+    "The Unbiased Report": "/unbiased-report.png",
+    "Aperture – Photography Company Lander Page": "/aperture.png", 
+    "Gallery Worded": "/Gallery-Worded.png",
+    "KNOW": "/KNOW.png",
+    "Neon Store – Meme Marketplace": "/neon-store.png"
+  };
+  
+  return imageMap[projectName] || "/profile-pic.png"; // Fallback image
 };
 
 export default function Projects() {
@@ -112,14 +126,16 @@ export default function Projects() {
                         </a>
                       )}
                     </div>
-                  </div>
-
-                  {/* Project Image Placeholder */}
+                  </div>                  {/* Project Image */}
                   <div className="lg:col-span-4">
-                    <div className="aspect-[4/3] bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg border border-gray-800 group-hover:border-gray-700 transition-colors duration-300">
-                      <div className="w-full h-full flex items-center justify-center">
-                        <span className="text-gray-600 text-sm font-light">PROJECT PREVIEW</span>
-                      </div>
+                    <div className="aspect-[4/3] bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg border border-gray-800 group-hover:border-gray-700 transition-colors duration-300 overflow-hidden align-middle flex items-center justify-center">
+                      <Image
+                        src={getProjectImage(project.name)}
+                        alt={project.name}
+                        width={400}
+                        height={300}
+                        className="w-fit h-full object-contain hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
                   </div>
                 </div>
