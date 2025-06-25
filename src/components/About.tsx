@@ -9,54 +9,77 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2
+      staggerChildren: 0.1
     }
   }
 };
 
 const item = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 30 },
   show: { opacity: 1, y: 0 }
 };
 
 export default function About() {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-20 bg-black text-white">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        {/* About Me Section */}
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          variants={container}
+          className="mb-32"
+        >
+          <motion.div 
+            variants={item}
+            className="text-center mb-16"
+          >
+            <h2 className="text-5xl lg:text-7xl font-light tracking-tight mb-8">
+              about me
+            </h2>
+            <p className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              A passionate software engineer specializing in full-stack development, AI integration, 
+              and building scalable web applications. Currently pursuing B.Tech in Computer Science 
+              with a strong focus on modern technologies and innovative solutions.
+            </p>
+          </motion.div>
+        </motion.div>
+
         {/* Education Section */}
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
           variants={container}
-          className="mb-20"
+          className="mb-32"
         >
-          <motion.h2 
+          <motion.h3 
             variants={item}
-            className="text-4xl font-bold text-center text-gray-900 mb-12"
+            className="text-3xl font-light tracking-wide mb-12 text-gray-300"
           >
             Education
-          </motion.h2>
+          </motion.h3>
           
           <div className="space-y-8">
             {education.map((edu, index) => (
               <motion.div
                 key={index}
                 variants={item}
-                className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 border border-blue-100"
+                className="border border-gray-800 rounded-lg p-6 hover:border-gray-700 transition-colors duration-300"
               >
                 <div className="flex items-start space-x-4">
-                  <div className="bg-blue-600 p-3 rounded-full">
+                  <div className="border border-gray-700 p-3 rounded-full">
                     <GraduationCap className="text-white" size={24} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-900">{edu.institution}</h3>
-                    <p className="text-lg text-gray-700 mt-1">{edu.degree}</p>
-                    <div className="flex flex-col sm:flex-row sm:justify-between mt-2">
-                      <span className="text-blue-600 font-medium">{edu.grade}</span>
-                      <span className="text-gray-600">{edu.duration}</span>
+                    <h4 className="text-xl font-medium text-white mb-1">{edu.institution}</h4>
+                    <p className="text-lg text-gray-300 mb-2">{edu.degree}</p>
+                    <div className="flex flex-col sm:flex-row sm:justify-between">
+                      <span className="text-gray-400 font-light">{edu.grade}</span>
+                      <span className="text-gray-500">{edu.duration}</span>
                     </div>
-                    <p className="text-gray-600 mt-1">{edu.location}</p>
+                    <p className="text-gray-500 mt-1">{edu.location}</p>
                   </div>
                 </div>
               </motion.div>
@@ -71,28 +94,28 @@ export default function About() {
           viewport={{ once: true }}
           variants={container}
         >
-          <motion.h2 
+          <motion.h3 
             variants={item}
-            className="text-4xl font-bold text-center text-gray-900 mb-12"
+            className="text-3xl font-light tracking-wide mb-12 text-gray-300"
           >
             Technical Skills
-          </motion.h2>
+          </motion.h3>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Languages */}
             <motion.div 
               variants={item}
-              className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 border border-purple-100"
+              className="border border-gray-800 rounded-lg p-6 hover:border-gray-700 transition-colors duration-300"
             >
               <div className="flex items-center space-x-3 mb-4">
-                <Code className="text-purple-600" size={24} />
-                <h3 className="text-xl font-semibold text-gray-900">Languages</h3>
+                <Code className="text-white" size={24} />
+                <h4 className="text-xl font-medium text-white">Languages</h4>
               </div>
               <div className="flex flex-wrap gap-2">
                 {skills.languages.map((lang, index) => (
                   <span 
                     key={index}
-                    className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium"
+                    className="border border-gray-700 text-gray-300 px-3 py-1 rounded-full text-sm font-light hover:border-gray-600 transition-colors duration-300"
                   >
                     {lang}
                   </span>
@@ -103,17 +126,17 @@ export default function About() {
             {/* Frameworks */}
             <motion.div 
               variants={item}
-              className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6 border border-green-100"
+              className="border border-gray-800 rounded-lg p-6 hover:border-gray-700 transition-colors duration-300"
             >
               <div className="flex items-center space-x-3 mb-4">
-                <Server className="text-green-600" size={24} />
-                <h3 className="text-xl font-semibold text-gray-900">Frameworks</h3>
+                <Server className="text-white" size={24} />
+                <h4 className="text-xl font-medium text-white">Frameworks</h4>
               </div>
               <div className="flex flex-wrap gap-2">
                 {skills.frameworks.map((framework, index) => (
                   <span 
                     key={index}
-                    className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium"
+                    className="border border-gray-700 text-gray-300 px-3 py-1 rounded-full text-sm font-light hover:border-gray-600 transition-colors duration-300"
                   >
                     {framework}
                   </span>
@@ -124,17 +147,17 @@ export default function About() {
             {/* Technologies */}
             <motion.div 
               variants={item}
-              className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg p-6 border border-blue-100"
+              className="border border-gray-800 rounded-lg p-6 hover:border-gray-700 transition-colors duration-300"
             >
               <div className="flex items-center space-x-3 mb-4">
-                <Database className="text-blue-600" size={24} />
-                <h3 className="text-xl font-semibold text-gray-900">Technologies</h3>
+                <Database className="text-white" size={24} />
+                <h4 className="text-xl font-medium text-white">Technologies</h4>
               </div>
               <div className="flex flex-wrap gap-2">
                 {skills.technologies.map((tech, index) => (
                   <span 
                     key={index}
-                    className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium"
+                    className="border border-gray-700 text-gray-300 px-3 py-1 rounded-full text-sm font-light hover:border-gray-600 transition-colors duration-300"
                   >
                     {tech}
                   </span>
@@ -145,17 +168,17 @@ export default function About() {
             {/* Specializations */}
             <motion.div 
               variants={item}
-              className="md:col-span-2 lg:col-span-3 bg-gradient-to-br from-orange-50 to-red-50 rounded-lg p-6 border border-orange-100"
+              className="md:col-span-2 lg:col-span-3 border border-gray-800 rounded-lg p-6 hover:border-gray-700 transition-colors duration-300"
             >
               <div className="flex items-center space-x-3 mb-4">
-                <Brain className="text-orange-600" size={24} />
-                <h3 className="text-xl font-semibold text-gray-900">Specializations</h3>
+                <Brain className="text-white" size={24} />
+                <h4 className="text-xl font-medium text-white">Specializations</h4>
               </div>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {skills.specializations.map((spec, index) => (
                   <div 
                     key={index}
-                    className="bg-orange-100 text-orange-800 px-4 py-2 rounded-lg text-sm font-medium text-center"
+                    className="border border-gray-700 text-gray-300 px-4 py-2 rounded-lg text-sm font-light text-center hover:border-gray-600 transition-colors duration-300"
                   >
                     {spec}
                   </div>

@@ -38,9 +38,8 @@ export default function LeetCode() {
       } 
     };
 
-    loadStats();
-  }, []);
-//   useEffect(() => {}, [stats]);
+    loadStats();  }, []);
+
   const StatCard = ({ icon: Icon, title, value, color, description }: {
     icon: React.ComponentType<{ size?: number; className?: string }>;
     title: string;
@@ -49,18 +48,17 @@ export default function LeetCode() {
     description?: string;
   }) => (
     <motion.div
-    //   variants={item}
-      className={`bg-white rounded-lg p-6 shadow-lg border-l-4 ${color} hover:shadow-xl transition-all duration-300`}
+      className="border border-gray-800 rounded-lg p-6 hover:border-gray-700 transition-colors duration-300"
     >
       <div className="flex items-center space-x-4">
-        <div className={`p-3 rounded-full ${color.replace('border-', 'bg-').replace('-500', '-100')}`}>
-          <Icon className={`${color.replace('border-', 'text-')}`} size={24} />
+        <div className="border border-gray-700 p-3 rounded-full">
+          <Icon className="text-white" size={20} />
         </div>
         <div>
-          <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
-          <p className="text-2xl font-bold text-gray-800">{value}</p>
+          <h3 className="text-lg font-light text-gray-400">{title}</h3>
+          <p className="text-2xl font-light text-white">{value}</p>
           {description && (
-            <p className="text-sm text-gray-600 mt-1">{description}</p>
+            <p className="text-sm text-gray-500 mt-1">{description}</p>
           )}
         </div>
       </div>
@@ -77,63 +75,61 @@ export default function LeetCode() {
     return (
       <motion.div
         variants={item}
-        className="bg-white rounded-lg p-6 shadow-lg"
+        className="border border-gray-800 rounded-lg p-6 hover:border-gray-700 transition-colors duration-300"
       >
-        <div className="flex justify-between items-center mb-2">
-          <h4 className="text-lg font-semibold text-gray-900">{label}</h4>
-          <span className="text-sm font-medium text-gray-600">
+        <div className="flex justify-between items-center mb-3">
+          <h4 className="text-lg font-light text-white">{label}</h4>
+          <span className="text-sm font-light text-gray-400">
             {solved} / {total}
           </span>
         </div>
-        <div className="w-full bg-gray-200 rounded-full h-3 mb-2">
+        <div className="w-full bg-gray-800 rounded-full h-2 mb-2">
           <motion.div
-            className={`h-3 rounded-full ${color}`}
+            className={`h-2 rounded-full ${color}`}
             initial={{ width: 0 }}
             whileInView={{ width: `${percentage}%` }}
             transition={{ duration: 1, ease: "easeOut" }}
           />
         </div>
-        <p className="text-sm text-gray-600">{percentage.toFixed(1)}% solved</p>
+        <p className="text-sm text-gray-500">{percentage.toFixed(1)}% solved</p>
       </motion.div>
     );
   };
-
   return (
-    <section id="leetcode" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="leetcode" className="py-20 bg-black text-white">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
           variants={container}
         >
-          <motion.h2 
+          {/* Section Header */}
+          <motion.div 
             variants={item}
-            className="text-4xl font-bold text-center text-gray-900 mb-4"
+            className="text-center mb-20"
           >
-            LeetCode Statistics
-          </motion.h2>
-          
-          <motion.p
-            variants={item}
-            className="text-center text-gray-600 mb-12 max-w-2xl mx-auto"
-          >
-            My coding journey and problem-solving achievements on LeetCode platform
-          </motion.p>
+            <h2 className="text-5xl lg:text-7xl font-light tracking-tight mb-8">
+              coding journey
+            </h2>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              My problem-solving achievements and coding consistency on LeetCode platform.
+            </p>
+          </motion.div>
 
           {loading ? (
             <div className="flex justify-center items-center py-20">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-600"></div>
             </div>
           ) : stats ? (
             <>
               {/* Main Stats */}
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
                 <StatCard
                   icon={Code}
                   title="Total Solved"
                   value={stats.totalSolved}
-                  color="border-blue-500"
+                  color="text-white"
                   description="Problems completed"
                 />
                 
@@ -141,7 +137,7 @@ export default function LeetCode() {
                   icon={Target}
                   title="Acceptance Rate"
                   value={`${stats.acceptanceRate.toFixed(1)}%`}
-                  color="border-green-500"
+                  color="text-white"
                   description="Success rate"
                 />
                 
@@ -149,7 +145,7 @@ export default function LeetCode() {
                   icon={Trophy}
                   title="Easy Problems"
                   value={stats.easySolved}
-                  color="border-yellow-500"
+                  color="text-white"
                   description="Beginner level"
                 />
                 
@@ -157,53 +153,53 @@ export default function LeetCode() {
                   icon={TrendingUp}
                   title="Medium Problems"
                   value={stats.mediumSolved}
-                  color="border-orange-500"
+                  color="text-white"
                   description="Intermediate level"
                 />
               </div>
 
               {/* Progress Bars */}
-              <div className="grid md:grid-cols-3 gap-6 mb-12">
+              <div className="grid md:grid-cols-3 gap-6 mb-16">
                 <ProgressBar
                   label="Easy"
                   solved={stats.easySolved}
-                  total={Math.ceil(stats.totalQuestions * 0.4)} // Estimate 40% easy
-                  color="bg-green-500"
+                  total={Math.ceil(stats.totalQuestions * 0.4)}
+                  color="bg-green-600"
                 />
                 
                 <ProgressBar
                   label="Medium"
                   solved={stats.mediumSolved}
-                  total={Math.ceil(stats.totalQuestions * 0.45)} // Estimate 45% medium
-                  color="bg-yellow-500"
+                  total={Math.ceil(stats.totalQuestions * 0.45)}
+                  color="bg-yellow-600"
                 />
                 
                 <ProgressBar
                   label="Hard"
                   solved={stats.hardSolved}
-                  total={Math.ceil(stats.totalQuestions * 0.15)} // Estimate 15% hard
-                  color="bg-red-500"
+                  total={Math.ceil(stats.totalQuestions * 0.15)}
+                  color="bg-red-600"
                 />
               </div>
 
               {/* Achievement Badge */}
               <motion.div
                 variants={item}
-                className="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg p-8 text-center text-white shadow-lg"
+                className="border border-gray-800 rounded-lg p-8 text-center hover:border-gray-700 transition-colors duration-300"
               >
-                <Trophy size={48} className="mx-auto mb-4" />
-                <h3 className="text-2xl font-bold mb-2">50 Days Badge </h3>
-                <p className="text-lg opacity-90 mb-4">
+                <Trophy size={48} className="mx-auto mb-4 text-gray-400" />
+                <h3 className="text-2xl font-light tracking-tight mb-2 text-white">50 Days Badge</h3>
+                <p className="text-gray-400 mb-6">
                   Consistently solved problems for 50 consecutive days
                 </p>
                 <a
                   href={`https://leetcode.com/u/${personalInfo.leetcode}/`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 bg-white text-orange-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
+                  className="inline-flex items-center space-x-3 text-white hover:text-gray-300 transition-colors duration-300"
                 >
-                  <span>View LeetCode Profile</span>
-                  <ExternalLink size={18} />
+                  <span className="font-light tracking-wider">VIEW LEETCODE PROFILE</span>
+                  <ExternalLink size={16} />
                 </a>
               </motion.div>
             </>
@@ -212,27 +208,27 @@ export default function LeetCode() {
               variants={item}
               className="text-center py-20"
             >
-              <Code size={48} className="mx-auto text-gray-400 mb-4" />
-              <h3 className="text-xl font-semibold text-gray-600 mb-2">
+              <Code size={48} className="mx-auto text-gray-600 mb-4" />
+              <h3 className="text-xl font-light tracking-tight text-gray-400 mb-2">
                 LeetCode Stats Unavailable
               </h3>
-              <p className="text-gray-500 mb-6">
+              <p className="text-gray-500 mb-8">
                 Unable to fetch live statistics, but here's what I've achieved:
               </p>
-              <div className="bg-white rounded-lg p-6 shadow-lg max-w-md mx-auto">
-                <h4 className="text-lg font-semibold text-gray-900 mb-4">Achievements</h4>
-                <ul className="space-y-2 text-left">
-                  <li className="flex items-center space-x-2">
-                    <Trophy className="text-yellow-500" size={16} />
-                    <span>300+ problems solved</span>
+              <div className="border border-gray-800 rounded-lg p-6 max-w-md mx-auto">
+                <h4 className="text-lg font-light text-white mb-4">Achievements</h4>
+                <ul className="space-y-3 text-left">
+                  <li className="flex items-center space-x-3">
+                    <Trophy className="text-gray-400" size={16} />
+                    <span className="text-gray-400">300+ problems solved</span>
                   </li>
-                  <li className="flex items-center space-x-2">
-                    <Target className="text-green-500" size={16} />
-                    <span>50 days badge earned</span>
+                  <li className="flex items-center space-x-3">
+                    <Target className="text-gray-400" size={16} />
+                    <span className="text-gray-400">50 days badge earned</span>
                   </li>
-                  <li className="flex items-center space-x-2">
-                    <Code className="text-blue-500" size={16} />
-                    <span>Strong DSA foundation</span>
+                  <li className="flex items-center space-x-3">
+                    <Code className="text-gray-400" size={16} />
+                    <span className="text-gray-400">Strong DSA foundation</span>
                   </li>
                 </ul>
               </div>
