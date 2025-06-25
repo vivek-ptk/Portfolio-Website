@@ -29,13 +29,12 @@ export default function ScrollToTop() {
 
   return (
     <AnimatePresence>
-      {isVisible && (
-        <motion.button
+      {isVisible && (        <motion.button
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-300 z-40"
+          className="fixed bottom-8 right-8 bg-gray-800 border border-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-gray-700 hover:border-gray-600 transition-all duration-300 z-40"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >

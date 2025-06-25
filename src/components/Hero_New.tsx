@@ -139,15 +139,14 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Column - Image */}
-          <motion.div
+          {/* Right Column - Image */}          <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative"
           >
             <div className="relative w-80 h-80 lg:w-96 lg:h-96 mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-full"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-400 rounded-full"></div>
               <Image
                 src="/profile-pic.png"
                 alt={personalInfo.name}
@@ -158,8 +157,8 @@ export default function Hero() {
               />
               
               {/* Decorative Elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 border border-gray-700 rounded-full"></div>
-              <div className="absolute -bottom-8 -left-8 w-16 h-16 bg-gray-800 rounded-full"></div>
+              <div className="absolute -top-4 -right-4 w-24 h-24 border border-gray-400 rounded-full"></div>
+              <div className="absolute -bottom-8 -left-8 w-16 h-16 bg-gray-400 rounded-full"></div>
             </div>
           </motion.div>
         </div>
