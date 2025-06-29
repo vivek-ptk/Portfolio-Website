@@ -82,7 +82,7 @@ export default function Navigation() {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className={`text-sm font-light tracking-wider transition-colors duration-200 ${
+                className={`text-sm font-light tracking-wider transition-colors duration-200 cursor-pointer ${
                   activeSection === item.href.slice(1)
                     ? 'text-white'
                     : 'text-gray-400 hover:text-white'
