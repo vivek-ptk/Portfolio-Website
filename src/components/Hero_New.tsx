@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { personalInfo } from '@/data/resume';
-import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, Mail, Newspaper } from 'lucide-react';
 
 export default function Hero() {
   const titles = ["frontend developer", "full stack engineer", "problem solver"];
@@ -89,20 +89,36 @@ export default function Hero() {
               Hi I'm {personalInfo.name.split(' ')[0]}, a passionate Front-end Developer & Full-stack Engineer based in Bhubaneswar, India.
             </motion.p> */}
 
-            {/* CTA Button */}
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
-              onClick={scrollToProjects}
-              className="group inline-flex items-center space-x-3 text-white hover:text-gray-300 transition-colors duration-300"
-            >
-              <span className="text-lg font-light tracking-wider">SEE MY WORKS</span>
-              <ArrowRight 
-                size={20} 
-                className="transform group-hover:translate-x-1 transition-transform duration-300" 
-              />
-            </motion.button>
+            {/* CTA Buttons */}
+            <div className="flex flex-col space-y-4">
+              <motion.button
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+                onClick={scrollToProjects}
+                className="group inline-flex items-center px-3 space-x-3 text-white hover:text-gray-300 transition-colors duration-300 self-start"
+              >
+                <span className="text-lg font-light tracking-wider">SEE MY WORKS</span>
+                <ArrowRight 
+                  size={20} 
+                  className="transform group-hover:translate-x-1 transition-transform duration-300" 
+                />
+              </motion.button>
+
+              {/* Resume Button */}
+              <motion.a
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9 }}
+                href="https://drive.google.com/file/d/1G3wd-23KNzSusWmswhfBbS-sY8qaahOF/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-3 text-gray-400 hover:text-white transition-colors duration-300 border border-gray-700 hover:border-gray-500 px-6 py-3 rounded-full self-start"
+              >
+                <Newspaper size={16} className="text-gray-400 group-hover:text-white transition-colors duration-300" />
+                <span className="text-sm font-light tracking-wider">MY RESUME</span>
+              </motion.a>
+            </div>
 
             {/* Social Links */}
             <motion.div

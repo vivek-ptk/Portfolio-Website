@@ -12,23 +12,23 @@ export const education = [
     institution: "Siksha 'O' Anusandhan Deemed to be University",
     degree: "B.Tech in Computer Science and Engineering",
     duration: "2021 - 2025",
-    grade: "CGPA: 8.75",
+    grade: "CGPA: 8.78",
     location: "Bhubaneswar, Odisha"
   },
-  {
-    institution: "Delhi Public School Bokaro",
-    degree: "CBSE-2020 (CLASS XII)",
-    duration: "2020",
-    grade: "Percentage: 80%",
-    location: "Bokaro, Jharkhand"
-  },
-  {
-    institution: "Delhi Public School Bokaro",
-    degree: "CBSE-2018 (CLASS X)",
-    duration: "2018",
-    grade: "Percentage: 84%",
-    location: "Bokaro, Jharkhand"
-  }
+  // {
+  //   institution: "Delhi Public School Bokaro",
+  //   degree: "CBSE-2020 (CLASS XII)",
+  //   duration: "2020",
+  //   grade: "Percentage: 80%",
+  //   location: "Bokaro, Jharkhand"
+  // },
+  // {
+  //   institution: "Delhi Public School Bokaro",
+  //   degree: "CBSE-2018 (CLASS X)",
+  //   duration: "2018",
+  //   grade: "Percentage: 84%",
+  //   location: "Bokaro, Jharkhand"
+  // }
 ];
 
 export const skills = {
