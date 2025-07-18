@@ -106,7 +106,7 @@ export default function Hero() {
               </motion.button>
 
               {/* Resume Button */}
-              <motion.a
+              {/* <motion.a
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.9 }}
@@ -117,7 +117,7 @@ export default function Hero() {
               >
                 <Newspaper size={16} className="text-gray-400 group-hover:text-white transition-colors duration-300" />
                 <span className="text-sm font-light tracking-wider">MY RESUME</span>
-              </motion.a>
+              </motion.a> */}
             </div>
 
             {/* Social Links */}
