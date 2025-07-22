@@ -80,15 +80,6 @@ export const projects = [
     tech: ["Python", "TensorFlow", "FastAPI", "React"]
   },
   {
-    name: "Aperture – Photography Company Lander Page",
-    description: "Next.js based Lander Page",
-    duration: "02/2025 – 03/2025",
-    liveLink: "https://aperture-photography-company-lander.vercel.app/",
-    githubLink: "https://github.com/vivek-ptk/Aperture-Photography-Company-Lander",
-    details: [],
-    tech: ["Next.js"]
-  },
-  {
     name: "Gallery Worded",
     description: "Built an AI-powered gallery that enables image search through natural language.",
     duration: "02/2025 – 03/2025",
@@ -118,6 +109,15 @@ export const projects = [
     githubLink: "https://github.com/vivek-ptk/Neon-Store-App",
     details: [],
     tech: ["React", "Node.js", "Express", "MongoDB", "Cloudinary", "Gemini API"]
+  },
+  {
+    name: "Aperture – Photography Company Lander Page",
+    description: "Next.js based Lander Page",
+    duration: "02/2025 – 03/2025",
+    liveLink: "https://aperture-photography-company-lander.vercel.app/",
+    githubLink: "https://github.com/vivek-ptk/Aperture-Photography-Company-Lander",
+    details: [],
+    tech: ["Next.js"]
   }
 ];
 
